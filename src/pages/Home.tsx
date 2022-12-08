@@ -11,7 +11,7 @@ const LinkBox = styled.div`
 export const Home = () => {
   return (
     <SingleColumnLayout>
-      <H2>DAOhaus Free Ryder App</H2>
+      <H2>Free Ryder Claims App</H2>
       <HausAnimated />
       <ParMd>
         Earn shares by simply pressing a button. No merit, hard work, effort, or

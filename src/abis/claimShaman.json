@@ -1,0 +1,79 @@
+[
+  {
+    "type": "constructor",
+    "inputs": [
+      { "type": "address", "name": "_moloch", "internalType": "address" },
+      { "type": "bool", "name": "_shares", "internalType": "bool" },
+      { "type": "uint256", "name": "_perPeriod", "internalType": "uint256" },
+      { "type": "uint256", "name": "_period", "internalType": "uint256" }
+    ]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      { "type": "address", "name": "", "internalType": "contract IBAAL" }
+    ],
+    "name": "baal",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "outputs": [],
+    "name": "claim",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "claims",
+    "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "perPeriod",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
+    "name": "period",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
+    "name": "shares",
+    "inputs": []
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "outputs": [
+      { "type": "address", "name": "", "internalType": "contract IERC20" }
+    ],
+    "name": "token",
+    "inputs": []
+  },
+  {
+    "type": "event",
+    "name": "Claim",
+    "inputs": [
+      { "type": "address", "name": "account", "indexed": false },
+      { "type": "uint256", "name": "timestamp", "indexed": false }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "SetMember",
+    "inputs": [{ "type": "address", "name": "account", "indexed": false }],
+    "anonymous": false
+  }
+]
