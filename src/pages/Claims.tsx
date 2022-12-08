@@ -8,13 +8,15 @@ import { ClaimDetails } from '../components/DetailsBox';
 import { ClaimButton } from '../components/ClaimButton';
 
 export const Claims = () => {
-  const { address } = useDHConnect();
+  const { address, chainId } = useDHConnect();
   const { isIdle, isLoading, error, data, hasClaimed, canClaim, refetch } =
     useClaim({
       shamanAddress: '0xbC9364441E42f3bbA5D5bB9A6c113E6D46026c14',
       userAddress: address,
       chainId: '0x64',
     });
+
+  const isGnosis = chainId === '0x64';
 
   if (isIdle)
     return (
@@ -23,6 +25,15 @@ export const Claims = () => {
         description="You need to connect your wallet in order to see if you are eligable for a claim"
       />
     );
+  if (!isGnosis) {
+    return (
+      <DisplayClaim
+        heading="Connect to Gnosis Chain"
+        description="Free Ryder DAO is only on Gnosis Chain."
+      />
+    );
+  }
+
   if (isLoading)
     return (
       <DisplayClaim
