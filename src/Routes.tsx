@@ -1,5 +1,6 @@
 import { DHLayout } from '@daohaus/connect';
 import { Routes as Router, Route, useLocation } from 'react-router-dom';
+import { Claims } from './pages/Claims';
 import { FormTest } from './pages/FormTest';
 import { Home } from './pages/Home';
 
@@ -10,12 +11,12 @@ export const Routes = () => {
       pathname={pathname}
       navLinks={[
         { label: 'Home', href: '/' },
-        { label: 'Form Test', href: '/formtest' },
+        { label: 'Form Test', href: '/claim' },
       ]}
     >
       <Router>
         <Route path="/" element={<Home />} />
-        <Route path="/formtest" element={<FormTest />} />
+        <Route path="/claim" element={<Claims />} />
       </Router>
     </DHLayout>
   );

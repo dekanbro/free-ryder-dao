@@ -22,7 +22,7 @@ export const Home = () => {
         Everyone is free to claim 10 shares once every 24 hours.
       </ParMd>
       <LinkBox>
-        <Link href="https://github.com/HausDAO/monorepo">Claim Shares</Link>
+        <Link href="claim">Claim Shares</Link>
         <Link
           href="https://admin.daohaus.fun/#/molochv3/0x64/0x7e72ba58d3d331d339566db9ff3ec184b293477d"
           linkType="external"
