@@ -1,8 +1,9 @@
+import { Routes as Router, Route, useLocation } from 'react-router-dom';
+
 import { DHLayout, useDHConnect } from '@daohaus/connect';
 import { TXBuilder } from '@daohaus/tx-builder';
-import { Routes as Router, Route, useLocation } from 'react-router-dom';
+
 import { Claims } from './pages/Claims';
-import { FormTest } from './pages/FormTest';
 import { Home } from './pages/Home';
 
 export const Routes = () => {
