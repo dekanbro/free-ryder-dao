@@ -16,6 +16,12 @@ export enum ProposalTypeIds {
 }
 
 export const TX = {
+  CLAIM: {
+    id: 'CLAIM',
+    contract: CONTRACT.CLAIM,
+    method: 'claim',
+    args: [],
+  },
   POST_SIGNAL: buildMultiCallTX({
     id: 'POST_SIGNAL',
     JSONDetails: {

@@ -1,6 +1,7 @@
 import { createContract } from '@daohaus/tx-builder';
 import ClaimAbi from '../abis/claimShaman.json';
 import { ValidNetwork, Keychain } from '@daohaus/keychain-utils';
+import { nowInSeconds } from '@daohaus/utils';
 import React from 'react';
 import { useQuery } from 'react-query';
 
@@ -28,9 +29,9 @@ const fetchUserClaim = async ({
     const claimPeriod = await claimsContract.period();
 
     return {
-      lastClaimed: lastClaimed.toPoo(),
-      claimAmt: claimAmt.toString(),
-      claimPeriod: claimPeriod.toString(),
+      lastClaimed: lastClaimed.toString() as string,
+      claimAmt: claimAmt.toString() as string,
+      claimPeriod: claimPeriod.toString() as string,
     };
   } catch (error: any) {
     console.error(error);
@@ -61,5 +62,8 @@ export const useClaim = ({
     { enabled: !!userAddress }
   );
   const hasClaimed = data?.lastClaimed && Number(data.lastClaimed) > 0;
-  return { data, hasClaimed, ...rest };
+  const canClaim =
+    nowInSeconds() - Number(data?.lastClaimed) >= Number(data?.claimPeriod) ||
+    !hasClaimed;
+  return { data, hasClaimed, canClaim, ...rest };
 };

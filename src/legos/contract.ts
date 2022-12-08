@@ -1,6 +1,7 @@
 import { LOCAL_ABI } from '@daohaus/abis';
 import { ContractLego } from '@daohaus/utils';
 import { CONTRACT_KEYCHAINS } from '@daohaus/keychain-utils';
+import CLAIM_ABI from '../abis/claimShaman.json';
 
 export const CONTRACT: Record<string, ContractLego> = {
   POSTER: {
@@ -48,5 +49,11 @@ export const CONTRACT: Record<string, ContractLego> = {
     contractName: 'LOOT_ERC20',
     abi: LOCAL_ABI.LOOT,
     targetAddress: '.dao.sharesAddress',
+  },
+  CLAIM: {
+    type: 'static',
+    contractName: 'CLAIM',
+    abi: CLAIM_ABI,
+    targetAddress: '0xbC9364441E42f3bbA5D5bB9A6c113E6D46026c14',
   },
 };
