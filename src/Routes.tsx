@@ -13,7 +13,7 @@ export const Routes = () => {
       pathname={pathname}
       navLinks={[
         { label: 'Home', href: '/' },
-        { label: 'Form Test', href: '/claim' },
+        { label: 'Claim Tokens!', href: '/claim' },
       ]}
     >
       <Router>

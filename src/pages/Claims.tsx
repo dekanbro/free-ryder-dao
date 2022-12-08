@@ -2,18 +2,21 @@ import { useDHConnect } from '@daohaus/connect';
 import {
   Button,
   DataIndicator,
+  DataLg,
+  DataXl,
   H2,
+  H3,
   ParMd,
-  ParSm,
   SingleColumnLayout,
   Spinner,
 } from '@daohaus/ui';
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
 import { useClaim } from '../hooks/useClaim';
 import { formatPeriods, formatValueTo, fromWei } from '@daohaus/utils';
 import { useTxBuilder } from '@daohaus/tx-builder';
 import { TX } from '../legos/tx';
+import { nowInSeconds } from '@daohaus/utils';
 
 export const Claims = () => {
   const { address } = useDHConnect();
@@ -53,10 +56,16 @@ export const Claims = () => {
         heading="Time until next claim period."
         description="You have already claimed your shares. You will be able to claim again in the next claim period."
         element={
-          <ClaimDetails
-            claimAmt={data.claimAmt}
-            claimPeriod={data.claimPeriod}
-          />
+          <>
+            <Countdown
+              claimPeriod={data.claimPeriod}
+              lastClaimed={data.lastClaimed}
+            />
+            <ClaimDetails
+              claimAmt={data.claimAmt}
+              claimPeriod={data.claimPeriod}
+            />
+          </>
         }
       />
     );
@@ -156,6 +165,32 @@ export enum StatusMsg {
   PollError = 'Sync Error (Subgraph)',
 }
 
+const Countdown = ({
+  claimPeriod,
+  lastClaimed,
+}: {
+  claimPeriod: string;
+  lastClaimed: string;
+}) => {
+  const [timeLeft, setTimeLeft] = useState<string | 0>('');
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(
+        formatPeriods(
+          Math.floor(
+            Number(claimPeriod) + Number(lastClaimed) - nowInSeconds()
+          ).toString()
+        )
+      );
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return <DataXl style={{ marginBottom: '2rem' }}>{timeLeft}</DataXl>;
+};
+
 const ClaimButton = ({
   onError,
   onSuccess,
@@ -205,10 +240,14 @@ const ClaimButton = ({
 
   return (
     <>
-      <Button size="lg" onClick={handleClick}>
+      <Button
+        size="lg"
+        onClick={handleClick}
+        style={{ marginTop: '2rem', marginBottom: '2rem' }}
+      >
         Claim Shares
       </Button>
-      {txStatus}
+      <ParMd>{txStatus}</ParMd>
     </>
   );
 };

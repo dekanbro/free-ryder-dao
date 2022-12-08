@@ -51,7 +51,7 @@ export const useClaim = ({
   rpcs?: Keychain;
 }) => {
   const { data, ...rest } = useQuery(
-    'claimData',
+    ['claimData', { userAddress }],
     () =>
       fetchUserClaim({
         shamanAddress,
