@@ -1,5 +1,7 @@
-import { H2, Link, ParMd, SingleColumnLayout } from '@daohaus/ui';
 import styled from 'styled-components';
+
+import { H2, Link, ParMd, SingleColumnLayout } from '@daohaus/ui';
+
 import { HausAnimated } from '../components/HausAnimated';
 
 const LinkBox = styled.div`

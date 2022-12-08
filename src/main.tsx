@@ -1,9 +1,11 @@
-import { DHConnectProvider } from '@daohaus/connect';
-import { HausThemeProvider } from '@daohaus/ui';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { HashRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import { DHConnectProvider } from '@daohaus/connect';
+import { HausThemeProvider } from '@daohaus/ui';
+
 import { Routes } from './Routes';
 
 const queryClient = new QueryClient();

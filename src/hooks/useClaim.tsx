@@ -1,9 +1,10 @@
+import { useQuery } from 'react-query';
+
 import { createContract } from '@daohaus/tx-builder';
-import ClaimAbi from '../abis/claimShaman.json';
 import { ValidNetwork, Keychain } from '@daohaus/keychain-utils';
 import { nowInSeconds } from '@daohaus/utils';
-import React from 'react';
-import { useQuery } from 'react-query';
+
+import ClaimAbi from '../abis/claimShaman.json';
 
 const fetchUserClaim = async ({
   shamanAddress,
