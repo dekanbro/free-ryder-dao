@@ -244,6 +244,7 @@ const ClaimButton = ({
         size="lg"
         onClick={handleClick}
         style={{ marginTop: '2rem', marginBottom: '2rem' }}
+        disabled={isLoading}
       >
         Claim Shares
       </Button>
