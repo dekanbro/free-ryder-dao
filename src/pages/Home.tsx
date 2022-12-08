@@ -11,19 +11,25 @@ const LinkBox = styled.div`
 export const Home = () => {
   return (
     <SingleColumnLayout>
-      <H2>DAOhaus is your haus</H2>
+      <H2>DAOhaus Free Ryder App</H2>
       <HausAnimated />
+      <ParMd>
+        Earn shares by simply pressing a button. No merit, hard work, effort, or
+        even proof of person-hood required!
+      </ParMd>
+
       <ParMd style={{ marginBottom: '2.4rem' }}>
-        Get started by editing src/pages/Home.tsx
+        Everyone is free to claim 10 shares once every 24 hours.
       </ParMd>
       <LinkBox>
-        <Link href="https://github.com/HausDAO/monorepo" linkType="external">
-          Github
+        <Link href="https://github.com/HausDAO/monorepo">Claim Shares</Link>
+        <Link
+          href="https://admin.daohaus.fun/#/molochv3/0x64/0x7e72ba58d3d331d339566db9ff3ec184b293477d"
+          linkType="external"
+        >
+          Free Ryder DAO
         </Link>
-        <Link href="https://admin.daohaus.fun/" linkType="external">
-          Admin
-        </Link>
-        <Link href="/formtest">Example Form</Link>
+        <Link href="/formtest">Leaderboard</Link>
       </LinkBox>
     </SingleColumnLayout>
   );

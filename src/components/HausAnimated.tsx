@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import hausBlockAnimated from '../assets/hausBlockAnimated.svg';
+import { RiMotorbikeFill } from 'react-icons/ri';
 
 const ImageContainer = styled.div`
   display: flex;
@@ -13,17 +12,13 @@ const ImageContainer = styled.div`
     height: 12rem;
     width: 12rem;
   }
-  img {
-    height: 12rem;
-    width: 12rem;
-  }
 `;
 
 export const HausAnimated = () => {
   return (
     <ImageContainer>
       <div className="img-block">
-        <img src={hausBlockAnimated} />
+        <RiMotorbikeFill className="img-block" />
       </div>
     </ImageContainer>
   );
