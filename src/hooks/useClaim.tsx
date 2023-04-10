@@ -28,11 +28,13 @@ const fetchUserClaim = async ({
     const lastClaimed = await claimsContract.claims(userAddress);
     const claimAmt = await claimsContract.perPeriod();
     const claimPeriod = await claimsContract.period();
+    const canClaim = await claimsContract.canClaim(userAddress);
 
     return {
       lastClaimed: lastClaimed.toString() as string,
       claimAmt: claimAmt.toString() as string,
       claimPeriod: claimPeriod.toString() as string,
+      canClaim: canClaim
     };
   } catch (error: any) {
     console.error(error);
@@ -64,7 +66,8 @@ export const useClaim = ({
   );
   const hasClaimed = data?.lastClaimed && Number(data.lastClaimed) > 0;
   const canClaim =
-    nowInSeconds() - Number(data?.lastClaimed) >= Number(data?.claimPeriod) ||
+  nowInSeconds() - Number(data?.lastClaimed) >= Number(data?.claimPeriod) ||
     !hasClaimed;
-  return { data, hasClaimed, canClaim, ...rest };
+  const isMember = data?.canClaim;
+  return { data, hasClaimed, canClaim, isMember, ...rest };
 };

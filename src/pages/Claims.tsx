@@ -1,17 +1,24 @@
 import { useDHConnect } from '@daohaus/connect';
 import { Spinner } from '@daohaus/ui';
 
+import useWindowSize from 'react-use/lib/useWindowSize'
+import Confetti from 'react-confetti'
+
 import { useClaim } from '../hooks/useClaim';
 import { DisplayClaim } from '../components/DisplayClaim';
 import { Countdown } from '../components/Countdown';
 import { ClaimDetails } from '../components/DetailsBox';
 import { ClaimButton } from '../components/ClaimButton';
+import { useState } from 'react';
 
 export const Claims = () => {
   const { address, chainId } = useDHConnect();
-  const { isIdle, isLoading, error, data, hasClaimed, canClaim, refetch } =
+  const [showConfetti, setShowConfetti] = useState(false);
+  const { width, height } = useWindowSize();
+  
+  const { isIdle, isLoading, error, data, hasClaimed, canClaim, isMember, refetch } =
     useClaim({
-      shamanAddress: '0xbC9364441E42f3bbA5D5bB9A6c113E6D46026c14',
+      shamanAddress: '0xe4197A5F54Ea476fE4Beb1474a1358580393dA28',
       userAddress: address,
       chainId: '0x64',
     });
@@ -49,6 +56,13 @@ export const Claims = () => {
         description={'Error fetching claim data from network RPC'}
       />
     );
+  if (!isMember)
+    return (
+      <DisplayClaim
+        heading="You must be a member"
+        description={'Your are not a member or do not have enough shares to meet the claim threshold.'}
+      />
+    );
   // Has Claimed, but needs to wait for the next claim period
   if (data && hasClaimed && !canClaim)
     return (
@@ -57,6 +71,7 @@ export const Claims = () => {
         description="You have already claimed your shares. You will be able to claim again in the next claim period."
         element={
           <>
+          {showConfetti && <Confetti width={width} height={height} gravity={.05} recycle={false} onConfettiComplete={()=>setShowConfetti(false)} />}
             <Countdown
               claimPeriod={data.claimPeriod}
               lastClaimed={data.lastClaimed}
@@ -81,7 +96,7 @@ export const Claims = () => {
               claimAmt={data.claimAmt}
               claimPeriod={data.claimPeriod}
             />
-            <ClaimButton onSuccess={() => refetch()} />
+            <ClaimButton onSuccess={() => {refetch(); setShowConfetti(true);}} />
           </>
         }
       />
@@ -93,11 +108,13 @@ export const Claims = () => {
         description="You have not claimed your shares yet. Claiming your shares will allow you to participate in the DAO."
         element={
           <>
+            
+
             <ClaimDetails
               claimAmt={data.claimAmt}
               claimPeriod={data.claimPeriod}
             />
-            <ClaimButton onSuccess={() => refetch()} />
+            <ClaimButton onSuccess={() => {refetch(); setShowConfetti(true);}} />
           </>
         }
       />

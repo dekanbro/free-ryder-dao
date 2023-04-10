@@ -54,6 +54,6 @@ export const CONTRACT: Record<string, ContractLego> = {
     type: 'static',
     contractName: 'CLAIM',
     abi: CLAIM_ABI,
-    targetAddress: '0xbC9364441E42f3bbA5D5bB9A6c113E6D46026c14',
+    targetAddress: '0xe4197A5F54Ea476fE4Beb1474a1358580393dA28',
   },
 };

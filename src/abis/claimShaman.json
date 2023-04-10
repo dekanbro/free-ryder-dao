@@ -1,79 +1,114 @@
 [
   {
-    "type": "constructor",
     "inputs": [
-      { "type": "address", "name": "_moloch", "internalType": "address" },
-      { "type": "bool", "name": "_shares", "internalType": "bool" },
-      { "type": "uint256", "name": "_perPeriod", "internalType": "uint256" },
-      { "type": "uint256", "name": "_period", "internalType": "uint256" }
-    ]
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [
-      { "type": "address", "name": "", "internalType": "contract IBAAL" }
+      { "internalType": "address", "name": "_moloch", "type": "address" },
+      { "internalType": "bool", "name": "_shares", "type": "bool" },
+      { "internalType": "uint256", "name": "_perPeriod", "type": "uint256" },
+      { "internalType": "uint256", "name": "_period", "type": "uint256" },
+      { "internalType": "uint256", "name": "_threshold", "type": "uint256" }
     ],
-    "name": "baal",
-    "inputs": []
-  },
-  {
-    "type": "function",
     "stateMutability": "nonpayable",
-    "outputs": [],
-    "name": "claim",
-    "inputs": []
+    "type": "constructor"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
-    "name": "claims",
-    "inputs": [{ "type": "address", "name": "", "internalType": "address" }]
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
-    "name": "perPeriod",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "uint256", "name": "", "internalType": "uint256" }],
-    "name": "period",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [{ "type": "bool", "name": "", "internalType": "bool" }],
-    "name": "shares",
-    "inputs": []
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "outputs": [
-      { "type": "address", "name": "", "internalType": "contract IERC20" }
-    ],
-    "name": "token",
-    "inputs": []
-  },
-  {
-    "type": "event",
-    "name": "Claim",
+    "anonymous": false,
     "inputs": [
-      { "type": "address", "name": "account", "indexed": false },
-      { "type": "uint256", "name": "timestamp", "indexed": false }
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
     ],
-    "anonymous": false
+    "name": "Claim",
+    "type": "event"
   },
   {
-    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
     "name": "SetMember",
-    "inputs": [{ "type": "address", "name": "account", "indexed": false }],
-    "anonymous": false
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "baal",
+    "outputs": [
+      { "internalType": "contract IBAAL", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "canClaim",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "claim",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "claims",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "perPeriod",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "period",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "shares",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "threshold",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "token",
+    "outputs": [
+      { "internalType": "contract IERC20", "name": "", "type": "address" }
+    ],
+    "stateMutability": "view",
+    "type": "function"
   }
 ]
