@@ -21,7 +21,7 @@ export const Home = () => {
       </ParMd>
 
       <ParMd style={{ marginBottom: '2.4rem' }}>
-        Everyone is free to claim 10 shares once every 24 hours.
+        Everyone is free to claim 1 shares once every 3 hours.
       </ParMd>
       <LinkBox>
         <Link href="claim">Claim Shares</Link>
