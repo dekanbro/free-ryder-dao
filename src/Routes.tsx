@@ -25,8 +25,8 @@ export const Routes = () => {
             <TXBuilder
               provider={provider}
               chainId="0x64"
-              daoId="0xfbddea58ca7dd83e03fd16f3eeee94d4eeea6632"
-              safeId="0x9dd0ef4a97825a77f35e03aefd412adf848d5341"
+              daoId="0x7ca3494cc9b31afa05c2f51ba5a2aa5affb3b659"
+              safeId="0xd3acdd0211b30407825370621e34fec53bf3d288"
               appState={{}}
             >
               <Claims />

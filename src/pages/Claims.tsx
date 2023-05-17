@@ -18,7 +18,7 @@ export const Claims = () => {
   
   const { isIdle, isLoading, error, data, hasClaimed, canClaim, isMember, refetch } =
     useClaim({
-      shamanAddress: '0xe4197A5F54Ea476fE4Beb1474a1358580393dA28',
+      shamanAddress: '0x2e67b1aced59cebfc186ca1f69082c50a1055528',
       userAddress: address,
       chainId: '0x64',
     });

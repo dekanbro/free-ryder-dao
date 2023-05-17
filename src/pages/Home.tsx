@@ -26,12 +26,12 @@ export const Home = () => {
       <LinkBox>
         <Link href="claim">Claim Shares</Link>
         <Link
-          href="https://admin.daohaus.fun/#/molochv3/0x64/0x7e72ba58d3d331d339566db9ff3ec184b293477d"
+          href="https://admin.daohaus.fun/#/molochv3/0x64/0x7ca3494cc9b31afa05c2f51ba5a2aa5affb3b659"
           linkType="external"
         >
-          Free Ryder DAO
+          ELI5 DAO
         </Link>
-        <Link href="/formtest">Leaderboard</Link>
+
       </LinkBox>
     </SingleColumnLayout>
   );
